@@ -1,0 +1,43 @@
+
+#data{
+    padding: .5rem;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+
+main{
+    padding: 0 !important;
+    background-color: whitesmoke !important;
+}
+    
+    #map{
+        height: calc(100vh - 8rem);
+        width: 100%;
+    }
+
+/* #related{
+    display: block !important;
+} */
+
+.gmnoprint, .gm-fullscreen-control{
+    display: none;
+}
+
+.error{
+    margin: 0;
+    color: rgb(255, 44, 44);
+    text-align: center;
+    display: block;
+}
+
+#mapLoading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1700;
+}

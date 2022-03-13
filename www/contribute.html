@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHEREPICK</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/forms.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <style>
+        main {
+            padding: 1rem;
+            padding-bottom: 5rem;
+        }
+
+        h2 {
+            color: whitesmoke;
+            margin-top: 0;
+        }
+
+        #photos_input {
+            width: 100%;
+            overflow-y: scroll;
+            display: flex;
+        }
+
+        .photo_input {
+            position: relative;
+            margin: 2px;
+            background-color: black;
+
+        }
+
+        .photo_input>div {
+            width: 36vw;
+            height: 36vw;
+            overflow: hidden;
+        }
+
+        .realimg {
+            background-size: cover;
+            width: 36vw;
+        }
+
+        /* .closeimg {
+            width: 10vw;
+            padding: 15vw;
+            position: absolute;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.302);
+            filter: invert(100%);
+        } */
+
+        #map {
+            background-color: rgb(56, 56, 56);
+            width: 100%;
+            height: 50vw;
+            margin-top: 1rem;
+        }
+
+        .open {
+            position: absolute;
+            top: 3rem;
+            left: 1rem;
+            height: 82vh !important;
+            width: calc(100% - 2rem) !important;
+        }
+
+        #custom-btn {
+            background-color: black;
+            color: whitesmoke;
+            text-align: center;
+            padding: .5rem;
+
+        }
+
+        #custom-btn label {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .mapw {
+            height: 84vh !important;
+            overflow: hidden;
+        }
+
+        #close {
+            z-index: 3;
+            position: absolute;
+            top: 4rem;
+            right: 1rem;
+            width: 2rem;
+            padding: .5rem;
+            background-color: white;
+            filter: invert(100%);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #map_data {
+            color: whitesmoke;
+            margin-top: .5rem;
+        }
+
+        #files {
+            width: 100%;
+            background-color: black;
+            color: whitesmoke;
+        }
+
+        #error {
+            color: red;
+            font-size: 1.1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <h1>WHEREPICK</h1>
+    </nav>
+
+    <main>
+        <h2>Contribute</h2>
+        <form>
+            <input type="text" placeholder="Nombre del lugar" id="name_place">
+            <textarea name="" id="desc_place" cols="30" placeholder="Descipción del lugar(opcional)"
+                rows="4"></textarea>
+            <!-- <img src="" alt="" id="ola"> -->
+            <div id="photos_input">
+
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="0"> </div>
+                </div>
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="1"> </div>
+                </div>
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="2"> </div>
+                </div>
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="3"> </div>
+                </div>
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="4"> </div>
+                </div>
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="5"> </div>
+                </div>
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="6"> </div>
+                </div>
+                <div class="photo_input">
+                    <div> <img src="./img/plus.png" alt="" class="realimg" data-id="7"> </div>
+                </div>
+            </div>
+            <input type="file" id="default-file" hidden="hidden" />
+
+            <!-- Button Markup -->
+            <div id="custom-btn" type="button" class="btn">
+                <label>Subir foto</label>
+            </div>
+            <div class="preview_holder">
+                <div id="preview">
+                    <img src="" id="preview_img" class="preview_img" />
+                    <span id="preview_text" class="preview_text">Image Preview</span>
+                </div>
+            </div>
+
+            <div id="map_div">
+                <div id="map"></div>
+            </div>
+            <label id="error"></label>
+
+            <img src="./img/cancel.svg" id="close" class="hidden">
+
+            <button type="button" id="send">ENVIAR</button>
+        </form>
+    </main>
+
+
+    <footer>
+        <div class="nav__button" data-url="index.html">
+            <img src="./img/search.svg" alt="">
+        </div>
+        <div class="nav__button" data-url="map.html">
+            <img src="./img/map.svg" alt="">
+        </div>
+        <div class="nav__button" data-url="contribute.html">
+            <img src="./img/add.svg" alt="">
+        </div>
+        <div class="nav__button" data-url="profile.html">
+            <img src="./img/user.svg" alt="">
+        </div>
+    </footer>
+
+    <script src="cordova.js"></script>
+    
+    <script src="./js/contribute.js"></script>
+    <script src="./js/Geo.js"></script>
+    <script src="./js/get_loc_map.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAINHMRUzyxtFpiKQsT2cqknmS7QAlz-NU&callback=initMap&libraries=&v=weekly"
+        async></script>
+
+
+    <script src="./js/footer.js"></script>
+
+</body>
+
+</html>

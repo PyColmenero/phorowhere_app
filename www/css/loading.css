@@ -1,0 +1,20 @@
+/*==== LOADING ====*/
+#loading1{
+    width: 20vw;
+    margin: 40vw 40vw;
+    display: block;
+    opacity: 25%;
+}
+#loading2{
+    width: 20vw;
+    margin: 60vw 40vw;
+    display: block;
+    opacity: 25%;
+}
+#loading3{
+    width: 20vw;
+    margin: 10rem auto;
+    display: block;
+
+    opacity: 25%;
+}
